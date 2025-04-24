@@ -3,8 +3,9 @@
 
   <div class="form-group">
     <label for="amount">💰 Enter Amount:</label>
-    <input id="amount" type="number" step="0.01" [(ngModel)]="inputAmount" (ngModelChange)="inputAmount = $event"
+    <input id="amount" type="number" step="0.01" [ngModel]="inputAmount()" (ngModelChange)="inputAmount.set($event)"
       placeholder="e.g. 100" />
+
   </div>
 
   <div class="form-group">
@@ -20,7 +21,7 @@
     <label for="to-currency">To Currency:</label>
     <select [ngModel]="toCurrency()" (ngModelChange)="toCurrency.set($event)">
       <option *ngFor="let c of currencyService.currencies()" [value]="c.code">
-        {{ c.code }}
+        {{ c.code }} ({{ c.symbol }})
       </option>
     </select>
 
