@@ -9,7 +9,7 @@
 
   <div class="form-group">
     <label for="from-currency">From Currency:</label>
-    <select id="from-currency" [(ngModel)]="fromCurrency" (ngModelChange)="fromCurrency = $event">
+    <select id="from-currency" [(ngModel)]="fromCurrency">
       <option *ngFor="let c of currencyService.currencies()" [value]="c.code">
         {{ c.code }} ({{ c.symbol }})
       </option>
